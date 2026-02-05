@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Analyzer - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>🔓 Hash Analyzer</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Configuration</h3>
+                <label>Hash to Analyze:</label>
+                <input type="text" id="hashInput" placeholder="Enter hash" value="5f4dcc3b5aa765d61d8327deb882cf99">
+                
+                <label>Hash Type (Optional):</label>
+                <select id="hashType">
+                    <option value="auto">Auto-Detect</option>
+                    <option value="md5">MD5</option>
+                    <option value="sha1">SHA1</option>
+                    <option value="sha256">SHA256</option>
+                    <option value="bcrypt">bcrypt</option>
+                </select>
+                
+                <button class="btn-primary" onclick="analyzeHash()">Analyze Hash</button>
+                <button class="btn-secondary" onclick="crackHash()">Attempt Crack</button>
+            </div>
+            
+            <div class="output-section">
+                <h3>Analysis Results</h3>
+                <div id="hashOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/hashanalyzer.ts"></script>
+</body>
+</html>

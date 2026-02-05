@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Scanner - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>🔍 Port Scanner</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Configuration</h3>
+                <label>Target IP/Hostname:</label>
+                <input type="text" id="target" placeholder="127.0.0.1" value="127.0.0.1">
+                
+                <label>Port Range:</label>
+                <select id="portRange">
+                    <option value="common">Common Ports (Fast)</option>
+                    <option value="well-known">Well-Known Ports (1-1024)</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+                
+                <div id="customRange" style="display: none;">
+                    <label>Start Port:</label>
+                    <input type="number" id="startPort" value="1" min="1" max="65535">
+                    <label>End Port:</label>
+                    <input type="number" id="endPort" value="100" min="1" max="65535">
+                </div>
+                
+                <button class="btn-primary" onclick="startPortScan()">Start Scan</button>
+                <button class="btn-secondary" onclick="stopPortScan()">Stop</button>
+            </div>
+            
+            <div class="output-section">
+                <h3>Scan Results</h3>
+                <div id="portOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/portscanner.ts"></script>
+</body>
+</html>

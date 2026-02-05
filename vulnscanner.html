@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Scanner - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>🛡️ Vulnerability Scanner</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Configuration</h3>
+                <label>Target URL:</label>
+                <input type="text" id="vulnTarget" placeholder="https://example.com" value="https://example.com">
+                
+                <label>Scan Type:</label>
+                <select id="scanType">
+                    <option value="quick">Quick Scan</option>
+                    <option value="full">Full Scan</option>
+                    <option value="deep">Deep Scan</option>
+                </select>
+                
+                <button class="btn-primary" onclick="startVulnScan()">Start Scan</button>
+            </div>
+            
+            <div class="output-section">
+                <h3>Vulnerabilities Found</h3>
+                <div id="vulnOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/vulnscanner.ts"></script>
+</body>
+</html>

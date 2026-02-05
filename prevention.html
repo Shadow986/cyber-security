@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevention Guide - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>🛡️ Security Prevention Guide</h1>
+        
+        <div class="prevention-container">
+            <div class="prevention-card">
+                <h2>🔨 Brute Force Prevention</h2>
+                <ul>
+                    <li>Implement account lockout after 3-5 failed attempts</li>
+                    <li>Use strong password policies (12+ chars, complexity)</li>
+                    <li>Enable multi-factor authentication (MFA)</li>
+                    <li>Implement rate limiting per IP</li>
+                    <li>Add CAPTCHA after failed attempts</li>
+                </ul>
+            </div>
+
+            <div class="prevention-card">
+                <h2>💉 SQL Injection Prevention</h2>
+                <ul>
+                    <li>Use parameterized queries/prepared statements</li>
+                    <li>Implement input validation and sanitization</li>
+                    <li>Use ORM frameworks (Sequelize, TypeORM, Prisma)</li>
+                    <li>Apply principle of least privilege for DB users</li>
+                    <li>Deploy Web Application Firewall (WAF)</li>
+                </ul>
+            </div>
+
+            <div class="prevention-card">
+                <h2>⚡ XSS Prevention</h2>
+                <ul>
+                    <li>Escape all user input before rendering</li>
+                    <li>Implement Content Security Policy (CSP)</li>
+                    <li>Use HTTPOnly and Secure flags on cookies</li>
+                    <li>Sanitize HTML with libraries like DOMPurify</li>
+                    <li>Use modern frameworks with auto-escaping</li>
+                </ul>
+            </div>
+
+            <div class="prevention-card">
+                <h2>🔐 General Security Best Practices</h2>
+                <ul>
+                    <li>Keep all software and dependencies updated</li>
+                    <li>Use HTTPS everywhere with valid certificates</li>
+                    <li>Implement proper session management</li>
+                    <li>Regular security audits and penetration testing</li>
+                    <li>Monitor logs for suspicious activity</li>
+                    <li>Implement proper error handling (no info leakage)</li>
+                    <li>Use security headers (HSTS, X-Frame-Options, etc.)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/prevention.ts"></script>
+</body>
+</html>

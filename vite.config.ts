@@ -13,7 +13,12 @@ export default defineConfig({
         tools: resolve(__dirname, 'tools.html'),
         bruteforce: resolve(__dirname, 'bruteforce.html'),
         sqlinjection: resolve(__dirname, 'sqlinjection.html'),
-        xss: resolve(__dirname, 'xss.html')
+        xss: resolve(__dirname, 'xss.html'),
+        portscanner: resolve(__dirname, 'portscanner.html'),
+        vulnscanner: resolve(__dirname, 'vulnscanner.html'),
+        networkmapper: resolve(__dirname, 'networkmapper.html'),
+        hashanalyzer: resolve(__dirname, 'hashanalyzer.html'),
+        prevention: resolve(__dirname, 'prevention.html')
       }
     }
   }

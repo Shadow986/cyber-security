@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Mapper - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>🗺️ Network Mapper</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Configuration</h3>
+                <label>Network Range:</label>
+                <input type="text" id="networkRange" placeholder="192.168.1.0/24" value="192.168.1.0/24">
+                
+                <button class="btn-primary" onclick="startNetworkMap()">Start Discovery</button>
+            </div>
+            
+            <div class="output-section">
+                <h3>Discovered Devices</h3>
+                <div id="networkOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/networkmapper.ts"></script>
+</body>
+</html>
