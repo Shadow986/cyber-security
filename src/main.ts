@@ -89,7 +89,6 @@ class CyberSecToolkit {
         for (let i = 0; i < vulnerabilities.length; i++) {
             await this.delay(1000);
             const vuln = vulnerabilities[i];
-            const severityColor = this.getSeverityColor(vuln.severity);
             
             const output = vulnerabilities.slice(0, i + 1).map(v => 
                 `[${v.severity.toUpperCase()}] ${v.description} ${v.cve ? `(${v.cve})` : ''}`
