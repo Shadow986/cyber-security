@@ -13,14 +13,9 @@
             <span class="brand-text">CyberSec Toolkit</span>
         </div>
         <div class="nav-links">
-            <a href="#home">🏠 Home</a>
-            <a href="#tools">🔧 Tools</a>
-            <a href="#scanner">🔍 Scanner</a>
-            <a href="#analysis">📊 Analysis</a>
-            <a href="#reports">📋 Reports</a>
-            <a href="#contact">📞 Contact</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
             <button class="theme-toggle">🌙</button>
-            <button class="login-btn">🔐 Login</button>
         </div>
     </nav>
 
@@ -35,64 +30,10 @@
                 Identify vulnerabilities before malicious actors do.
             </p>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="startScan()">Start Security Scan →</button>
-                <button class="btn-secondary" onclick="showTools()">View Tools</button>
+                <a href="tools.html" class="btn-primary">View Tools →</a>
             </div>
         </div>
     </main>
-
-    <section id="tools" class="tools-section">
-        <div class="tools-grid">
-            <div class="tool-card" onclick="portScan()">
-                <h3>🔍 Port Scanner</h3>
-                <p>Scan network ports and services</p>
-            </div>
-            <div class="tool-card" onclick="vulnScan()">
-                <h3>🛡️ Vulnerability Scanner</h3>
-                <p>Identify security weaknesses</p>
-            </div>
-            <div class="tool-card" onclick="networkMap()">
-                <h3>🗺️ Network Mapper</h3>
-                <p>Discover network topology</p>
-            </div>
-            <div class="tool-card" onclick="hashCracker()">
-                <h3>🔓 Hash Analyzer</h3>
-                <p>Analyze password hashes</p>
-            </div>
-            <div class="tool-card" onclick="bruteForce()">
-                <h3>🔨 Brute Force</h3>
-                <p>Password attack simulation</p>
-            </div>
-            <div class="tool-card" onclick="sqlInjection()">
-                <h3>💉 SQL Injection</h3>
-                <p>Database attack demo</p>
-            </div>
-            <div class="tool-card" onclick="xssAttack()">
-                <h3>⚡ XSS Attack</h3>
-                <p>Cross-site scripting demo</p>
-            </div>
-            <div class="tool-card" onclick="ddosAttack()">
-                <h3>💥 DDoS Simulation</h3>
-                <p>Denial of service demo</p>
-            </div>
-            <div class="tool-card" onclick="mitm()">
-                <h3>🕵️ MITM Attack</h3>
-                <p>Man-in-the-middle demo</p>
-            </div>
-            <div class="tool-card" onclick="phishing()">
-                <h3>🎣 Phishing</h3>
-                <p>Social engineering demo</p>
-            </div>
-        </div>
-    </section>
-
-    <div id="output" class="output-panel"></div>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-body"></div>
-        </div>
-    </div>
 
     <script type="module" src="./src/main.ts"></script>
 </body>

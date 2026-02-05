@@ -47,7 +47,99 @@ body {
 }
 
 .nav-links a:hover {
-    color: #f39c12;
+    color: #00ff88;
+}
+
+.tool-page {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.tool-page h1 {
+    text-align: center;
+    color: #00ff88;
+    margin-bottom: 2rem;
+}
+
+.tool-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.input-section, .output-section {
+    background: rgba(26, 47, 26, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.input-section h3, .output-section h3 {
+    color: #00ff88;
+    margin-bottom: 1rem;
+}
+
+.input-section label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    color: #00ff88;
+}
+
+.input-section input, .input-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: #1a1a2e;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 5px;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+}
+
+.output-box {
+    background: #0a0a0a;
+    padding: 1rem;
+    border-radius: 5px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #00ff88;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: #00cc6a;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 255, 136, 0.1);
+}
+
+.tools-grid a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .theme-toggle, .login-btn {

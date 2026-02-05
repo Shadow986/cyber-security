@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brute Force - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>🔨 Brute Force Attack Simulator</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Configuration</h3>
+                <label>Target Password:</label>
+                <input type="text" id="targetPassword" placeholder="Enter password to crack" value="admin123">
+                
+                <label>Wordlist (one per line):</label>
+                <textarea id="wordlist" rows="10" placeholder="password&#10;123456&#10;admin&#10;letmein">password
+123456
+admin
+letmein
+qwerty
+admin123
+password123</textarea>
+                
+                <button class="btn-primary" onclick="startBruteForce()">Start Attack</button>
+                <button class="btn-secondary" onclick="stopBruteForce()">Stop</button>
+            </div>
+            
+            <div class="output-section">
+                <h3>Attack Progress</h3>
+                <div id="bruteOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/bruteforce.ts"></script>
+</body>
+</html>

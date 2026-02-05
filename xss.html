@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Attack - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>⚡ XSS Attack Tester</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Vulnerable Comment Form</h3>
+                <p style="color: #ff6b6b; margin-bottom: 1rem;">⚠️ This form is intentionally vulnerable for testing</p>
+                
+                <label>Your Comment:</label>
+                <textarea id="xssInput" rows="5" placeholder="Enter your comment"></textarea>
+                
+                <button class="btn-primary" onclick="submitComment()">Post Comment</button>
+                
+                <div style="margin-top: 2rem;">
+                    <h4>Common XSS Payloads:</h4>
+                    <button class="btn-secondary" onclick="setXSSPayload('<script>alert(\'XSS\')</script>')">Basic Alert</button>
+                    <button class="btn-secondary" onclick="setXSSPayload('<img src=x onerror=alert(\'XSS\')>')">Image Error</button>
+                    <button class="btn-secondary" onclick="setXSSPayload('<svg onload=alert(\'XSS\')>')">SVG Onload</button>
+                </div>
+            </div>
+            
+            <div class="output-section">
+                <h3>Comments Section</h3>
+                <div id="xssOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/xss.ts"></script>
+</body>
+</html>

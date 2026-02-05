@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection - CyberSec Toolkit</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🛡️</span>
+            <span class="brand-text">CyberSec Toolkit</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="tools.html">🔧 Tools</a>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="tool-page">
+        <h1>💉 SQL Injection Tester</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h3>Vulnerable Login Form</h3>
+                <p style="color: #ff6b6b; margin-bottom: 1rem;">⚠️ This form is intentionally vulnerable for testing</p>
+                
+                <label>Username:</label>
+                <input type="text" id="username" placeholder="Enter username">
+                
+                <label>Password:</label>
+                <input type="password" id="password" placeholder="Enter password">
+                
+                <button class="btn-primary" onclick="attemptLogin()">Login</button>
+                
+                <div style="margin-top: 2rem;">
+                    <h4>Common SQL Injection Payloads:</h4>
+                    <button class="btn-secondary" onclick="setPayload(\"' OR '1'='1\")">Basic Bypass</button>
+                    <button class="btn-secondary" onclick="setPayload('admin\'--')">Admin Comment</button>
+                    <button class="btn-secondary" onclick="setPayload('\' UNION SELECT * FROM users--')">Union Attack</button>
+                </div>
+            </div>
+            
+            <div class="output-section">
+                <h3>Query Results</h3>
+                <div id="sqlOutput" class="output-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/sqlinjection.ts"></script>
+</body>
+</html>
