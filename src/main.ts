@@ -88,7 +88,6 @@ class CyberSecToolkit {
 
         for (let i = 0; i < vulnerabilities.length; i++) {
             await this.delay(1000);
-            const vuln = vulnerabilities[i];
             
             const output = vulnerabilities.slice(0, i + 1).map(v => 
                 `[${v.severity.toUpperCase()}] ${v.description} ${v.cve ? `(${v.cve})` : ''}`
@@ -143,16 +142,6 @@ Entropy: ${(Math.random() * 100).toFixed(2)}%`;
             3389: 'RDP', 5432: 'PostgreSQL', 3306: 'MySQL'
         };
         return services[port] || 'Unknown';
-    }
-
-    private getSeverityColor(severity: string): string {
-        const colors = {
-            low: '#2ecc71',
-            medium: '#f39c12',
-            high: '#e74c3c',
-            critical: '#8e44ad'
-        };
-        return colors[severity as keyof typeof colors] || '#ffffff';
     }
 
     private delay(ms: number): Promise<void> {
