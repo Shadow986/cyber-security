@@ -7,6 +7,11 @@ A TypeScript-based ethical hacking toolkit for security professionals and penetr
 - **Brute Force Simulator** - Interactive password cracking tool
 - **SQL Injection Tester** - Test SQL injection vulnerabilities
 - **XSS Attack Demo** - Cross-site scripting testing tool
+- **Port Scanner** - Scan network ports and identify services
+- **Vulnerability Scanner** - Detect security weaknesses with CVE references
+- **Network Mapper** - Discover network topology and devices
+- **Hash Analyzer** - Analyze and identify password hashes
+- **Prevention Guide** - Learn how to prevent cyber attacks
 
 ## Tech Stack
 
