@@ -4,32 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brute Force - CyberSec Toolkit</title>
-    <link rel="stylesheet" href="./src/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <span class="logo">🛡️</span>
-            <span class="brand-text">CyberSec Toolkit</span>
+<body class="bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white min-h-screen">
+    <nav class="flex justify-between items-center p-4 bg-green-900/90 backdrop-blur-sm border-b border-white/10">
+        <div class="flex items-center gap-2 text-2xl font-bold">
+            <span class="text-3xl">🛡️</span>
+            <span>CyberSec Toolkit</span>
         </div>
-        <div class="nav-links">
-            <a href="index.html">🏠 Home</a>
-            <a href="tools.html">🔧 Tools</a>
-            <button class="theme-toggle">🌙</button>
+        <div class="flex items-center gap-8">
+            <a href="/" class="text-white hover:text-green-400 transition-colors">🏠 Home</a>
+            <a href="/tools" class="text-white hover:text-green-400 transition-colors">🔧 Tools</a>
+            <button class="bg-transparent border border-white/30 text-white px-4 py-2 rounded hover:bg-white/10 transition-all">🌙</button>
         </div>
     </nav>
 
-    <div class="tool-page">
-        <h1>🔨 Brute Force Attack Simulator</h1>
+    <div class="max-w-7xl mx-auto p-8 mt-8">
+        <h1 class="text-center text-green-400 text-4xl font-bold mb-8">🔨 Brute Force Attack Simulator</h1>
         
-        <div class="tool-container">
-            <div class="input-section">
-                <h3>Configuration</h3>
-                <label>Target Password:</label>
-                <input type="text" id="targetPassword" placeholder="Enter password to crack" value="admin123">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-green-900/60 p-8 rounded-lg border border-green-400/30">
+                <h3 class="text-green-400 text-xl font-semibold mb-4">Configuration</h3>
+                <label class="block mt-4 mb-2 text-green-400">Target Password:</label>
+                <input type="text" id="targetPassword" placeholder="Enter password to crack" value="admin123" 
+                       class="w-full p-3 bg-gray-900 border border-green-400/30 rounded text-white font-mono">
                 
-                <label>Wordlist (one per line):</label>
-                <textarea id="wordlist" rows="10" placeholder="password&#10;123456&#10;admin&#10;letmein">password
+                <label class="block mt-4 mb-2 text-green-400">Wordlist (one per line):</label>
+                <textarea id="wordlist" rows="10" placeholder="password&#10;123456&#10;admin&#10;letmein"
+                          class="w-full p-3 bg-gray-900 border border-green-400/30 rounded text-white font-mono">password
 123456
 admin
 letmein
@@ -37,13 +39,13 @@ qwerty
 admin123
 password123</textarea>
                 
-                <button class="btn-primary" onclick="startBruteForce()">Start Attack</button>
-                <button class="btn-secondary" onclick="stopBruteForce()">Stop</button>
+                <button class="bg-green-400 text-black px-6 py-3 rounded font-bold mr-2 mt-2 hover:bg-green-500 hover:-translate-y-0.5 transition-all" onclick="startBruteForce()">Start Attack</button>
+                <button class="bg-transparent text-green-400 border-2 border-green-400 px-6 py-3 rounded font-bold mt-2 hover:bg-green-400/10 transition-all" onclick="stopBruteForce()">Stop</button>
             </div>
             
-            <div class="output-section">
-                <h3>Attack Progress</h3>
-                <div id="bruteOutput" class="output-box"></div>
+            <div class="bg-green-900/60 p-8 rounded-lg border border-green-400/30">
+                <h3 class="text-green-400 text-xl font-semibold mb-4">Attack Progress</h3>
+                <div id="bruteOutput" class="bg-black p-4 rounded min-h-96 max-h-96 overflow-y-auto font-mono border border-green-400/30"></div>
             </div>
         </div>
     </div>

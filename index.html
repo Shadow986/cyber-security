@@ -7,31 +7,32 @@
     <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <span class="logo">🛡️</span>
-            <span class="brand-text">CyberSec Toolkit</span>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">🏠 Home</a>
-            <a href="tools.html">🔧 Tools</a>
-            <button class="theme-toggle">🌙</button>
+    <nav class="bg-gray-900/90 backdrop-blur-md border-b border-gray-700 px-8 py-4">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center gap-2 text-2xl font-bold">
+                <span>🛡️</span>
+                <span>CyberSec Toolkit</span>
+            </div>
+            <div class="flex items-center gap-8">
+                <a href="/" class="hover:text-green-400 transition">🏠 Home</a>
+                <a href="/tools" class="hover:text-green-400 transition">🔧 Tools</a>
+            </div>
         </div>
     </nav>
 
-    <main class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Securing Your <span class="highlight">Network</span>,<br>
-                Protecting Your <span class="highlight-green">Future</span>
+    <main class="flex items-center justify-center min-h-[80vh] px-8">
+        <div class="text-center max-w-4xl">
+            <h1 class="text-6xl font-bold mb-6">
+                Securing Your <span class="text-green-400">Network</span>,<br>
+                Protecting Your <span class="text-green-400">Future</span>
             </h1>
-            <p class="hero-description">
+            <p class="text-xl text-gray-300 mb-8">
                 Professional ethical hacking toolkit for penetration testing and security assessment. 
                 Identify vulnerabilities before malicious actors do.
             </p>
-            <div class="hero-buttons">
-                <a href="tools.html" class="btn-primary">View Tools →</a>
-            </div>
+            <a href="/tools" class="inline-block bg-green-400 text-black px-8 py-4 rounded-lg font-bold hover:bg-green-500 transition transform hover:-translate-y-1">
+                View Tools →
+            </a>
         </div>
     </main>
 

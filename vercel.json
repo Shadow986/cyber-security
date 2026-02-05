@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/tools", "destination": "/tools.html" },
+    { "source": "/bruteforce", "destination": "/bruteforce.html" },
+    { "source": "/sqlinjection", "destination": "/sqlinjection.html" },
+    { "source": "/xss", "destination": "/xss.html" },
+    { "source": "/portscanner", "destination": "/portscanner.html" },
+    { "source": "/vulnscanner", "destination": "/vulnscanner.html" },
+    { "source": "/networkmapper", "destination": "/networkmapper.html" },
+    { "source": "/hashanalyzer", "destination": "/hashanalyzer.html" },
+    { "source": "/prevention", "destination": "/prevention.html" }
+  ]
+}

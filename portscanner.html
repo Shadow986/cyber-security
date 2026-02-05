@@ -7,48 +7,49 @@
     <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <span class="logo">🛡️</span>
-            <span class="brand-text">CyberSec Toolkit</span>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">🏠 Home</a>
-            <a href="tools.html">🔧 Tools</a>
-            <button class="theme-toggle">🌙</button>
+    <nav class="bg-gray-900/90 backdrop-blur-md border-b border-gray-700 px-8 py-4">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center gap-2 text-2xl font-bold">
+                <span>🛡️</span>
+                <span>CyberSec Toolkit</span>
+            </div>
+            <div class="flex items-center gap-8">
+                <a href="/" class="hover:text-green-400 transition">🏠 Home</a>
+                <a href="/tools" class="hover:text-green-400 transition">🔧 Tools</a>
+            </div>
         </div>
     </nav>
 
-    <div class="tool-page">
-        <h1>🔍 Port Scanner</h1>
+    <div class="max-w-7xl mx-auto px-8 py-12">
+        <h1 class="text-5xl font-bold text-center mb-12 text-green-400">🔍 Port Scanner</h1>
         
-        <div class="tool-container">
-            <div class="input-section">
-                <h3>Configuration</h3>
-                <label>Target IP/Hostname:</label>
-                <input type="text" id="target" placeholder="127.0.0.1" value="127.0.0.1">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-gray-800/60 p-8 rounded-lg border border-green-400/30">
+                <h3 class="text-2xl font-bold mb-6 text-green-400">Configuration</h3>
+                <label class="block mb-2 text-green-400">Target IP/Hostname:</label>
+                <input type="text" id="target" placeholder="127.0.0.1" value="127.0.0.1" class="w-full p-3 bg-gray-900 border border-green-400/30 rounded text-white font-mono mb-4">
                 
-                <label>Port Range:</label>
-                <select id="portRange">
+                <label class="block mb-2 text-green-400">Port Range:</label>
+                <select id="portRange" class="w-full p-3 bg-gray-900 border border-green-400/30 rounded text-white mb-4">
                     <option value="common">Common Ports (Fast)</option>
                     <option value="well-known">Well-Known Ports (1-1024)</option>
                     <option value="custom">Custom Range</option>
                 </select>
                 
                 <div id="customRange" style="display: none;">
-                    <label>Start Port:</label>
-                    <input type="number" id="startPort" value="1" min="1" max="65535">
-                    <label>End Port:</label>
-                    <input type="number" id="endPort" value="100" min="1" max="65535">
+                    <label class="block mb-2 text-green-400">Start Port:</label>
+                    <input type="number" id="startPort" value="1" min="1" max="65535" class="w-full p-3 bg-gray-900 border border-green-400/30 rounded text-white font-mono mb-4">
+                    <label class="block mb-2 text-green-400">End Port:</label>
+                    <input type="number" id="endPort" value="100" min="1" max="65535" class="w-full p-3 bg-gray-900 border border-green-400/30 rounded text-white font-mono mb-4">
                 </div>
                 
-                <button class="btn-primary" onclick="startPortScan()">Start Scan</button>
-                <button class="btn-secondary" onclick="stopPortScan()">Stop</button>
+                <button onclick="startPortScan()" class="bg-green-400 text-black px-6 py-3 rounded font-bold hover:bg-green-500 transition mr-2">Start Scan</button>
+                <button onclick="stopPortScan()" class="bg-transparent border-2 border-green-400 text-green-400 px-6 py-3 rounded font-bold hover:bg-green-400/10 transition">Stop</button>
             </div>
             
-            <div class="output-section">
-                <h3>Scan Results</h3>
-                <div id="portOutput" class="output-box"></div>
+            <div class="bg-gray-800/60 p-8 rounded-lg border border-green-400/30">
+                <h3 class="text-2xl font-bold mb-6 text-green-400">Scan Results</h3>
+                <div id="portOutput" class="bg-black p-4 rounded min-h-[400px] max-h-[600px] overflow-y-auto font-mono border border-green-400/30"></div>
             </div>
         </div>
     </div>

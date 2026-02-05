@@ -4,48 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL Injection - CyberSec Toolkit</title>
-    <link rel="stylesheet" href="./src/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <span class="logo">🛡️</span>
-            <span class="brand-text">CyberSec Toolkit</span>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">🏠 Home</a>
-            <a href="tools.html">🔧 Tools</a>
-            <button class="theme-toggle">🌙</button>
+<body class="bg-gray-900 text-white min-h-screen">
+    <nav class="bg-gray-800 border-b border-gray-700 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🛡️</span>
+                <span class="text-xl font-bold">CyberSec Toolkit</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="/" class="hover:text-blue-400 transition-colors">🏠 Home</a>
+                <a href="/tools" class="hover:text-blue-400 transition-colors">🔧 Tools</a>
+                <button class="hover:text-yellow-400 transition-colors">🌙</button>
+            </div>
         </div>
     </nav>
 
-    <div class="tool-page">
-        <h1>💉 SQL Injection Tester</h1>
+    <div class="container mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center">💉 SQL Injection Tester</h1>
         
-        <div class="tool-container">
-            <div class="input-section">
-                <h3>Vulnerable Login Form</h3>
-                <p style="color: #ff6b6b; margin-bottom: 1rem;">⚠️ This form is intentionally vulnerable for testing</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-gray-800 rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Vulnerable Login Form</h3>
+                <p class="text-red-400 mb-4">⚠️ This form is intentionally vulnerable for testing</p>
                 
-                <label>Username:</label>
-                <input type="text" id="username" placeholder="Enter username">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Username:</label>
+                        <input type="text" id="username" placeholder="Enter username" 
+                               class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Password:</label>
+                        <input type="password" id="password" placeholder="Enter password"
+                               class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <button onclick="attemptLogin()" 
+                            class="w-full bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition-colors">
+                        Login
+                    </button>
+                </div>
                 
-                <label>Password:</label>
-                <input type="password" id="password" placeholder="Enter password">
-                
-                <button class="btn-primary" onclick="attemptLogin()">Login</button>
-                
-                <div style="margin-top: 2rem;">
-                    <h4>Common SQL Injection Payloads:</h4>
-                    <button class="btn-secondary" onclick="setPayload(\"' OR '1'='1\")">Basic Bypass</button>
-                    <button class="btn-secondary" onclick="setPayload('admin\'--')">Admin Comment</button>
-                    <button class="btn-secondary" onclick="setPayload('\' UNION SELECT * FROM users--')">Union Attack</button>
+                <div class="mt-6">
+                    <h4 class="text-lg font-medium mb-3">Common SQL Injection Payloads:</h4>
+                    <div class="space-y-2">
+                        <button onclick="setPayload(\"' OR '1'='1\")" 
+                                class="w-full bg-gray-600 hover:bg-gray-500 px-3 py-2 rounded-md text-sm transition-colors">
+                            Basic Bypass
+                        </button>
+                        <button onclick="setPayload('admin\'--')" 
+                                class="w-full bg-gray-600 hover:bg-gray-500 px-3 py-2 rounded-md text-sm transition-colors">
+                            Admin Comment
+                        </button>
+                        <button onclick="setPayload('\' UNION SELECT * FROM users--')" 
+                                class="w-full bg-gray-600 hover:bg-gray-500 px-3 py-2 rounded-md text-sm transition-colors">
+                            Union Attack
+                        </button>
+                    </div>
                 </div>
             </div>
             
-            <div class="output-section">
-                <h3>Query Results</h3>
-                <div id="sqlOutput" class="output-box"></div>
+            <div class="bg-gray-800 rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Query Results</h3>
+                <div id="sqlOutput" class="bg-gray-900 border border-gray-600 rounded-md p-4 min-h-32 font-mono text-sm"></div>
             </div>
         </div>
     </div>
