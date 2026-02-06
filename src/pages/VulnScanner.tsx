@@ -29,9 +29,6 @@ export default function VulnScanner() {
     for (let i = 0; i < count; i++) {
       await new Promise(resolve => setTimeout(resolve, 1000));
       const vuln = vulnerabilities[i];
-      const severityColor = vuln.severity === 'critical' ? 'text-red-500' : 
-                           vuln.severity === 'high' ? 'text-red-400' :
-                           vuln.severity === 'medium' ? 'text-orange-400' : 'text-yellow-400';
       
       setOutput(prev => prev + `[${vuln.severity.toUpperCase()}] ${vuln.desc}\n${vuln.cve ? vuln.cve + '\n' : ''}\n`);
     }
