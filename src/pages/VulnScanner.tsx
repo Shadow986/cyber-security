@@ -48,29 +48,29 @@ export default function VulnScanner() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-[#0a1f1a] text-white">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">Vulnerability Scanner</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center text-[#00ff41]">Vulnerability Scanner</h1>
         
         <div className="max-w-4xl mx-auto space-y-6">
-          <div>
-            <label className="block text-sm font-medium mb-2">Target:</label>
+          <div className="backdrop-blur-sm bg-[#0d2b23]/50 p-6 rounded-xl border border-[#134235]">
+            <label className="block text-sm font-medium mb-2 text-[#00ff41]">Target:</label>
             <input
               type="text"
               value={target}
               onChange={(e) => setTarget(e.target.value)}
-              className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg"
+              className="w-full p-3 bg-[#10362c] border border-[#134235] rounded-lg text-white placeholder-gray-400 focus:border-[#00ff41] transition-colors"
               placeholder="https://example.com"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-2">Scan Type:</label>
+          <div className="backdrop-blur-sm bg-[#0d2b23]/50 p-6 rounded-xl border border-[#134235]">
+            <label className="block text-sm font-medium mb-2 text-[#00ff41]">Scan Type:</label>
             <select
               value={scanType}
               onChange={(e) => setScanType(e.target.value)}
-              className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg"
+              className="w-full p-3 bg-[#10362c] border border-[#134235] rounded-lg text-white focus:border-[#00ff41] transition-colors"
             >
               <option value="quick">Quick Scan</option>
               <option value="full">Full Scan</option>
@@ -81,24 +81,24 @@ export default function VulnScanner() {
           <button
             onClick={startVulnScan}
             disabled={isScanning || !target}
-            className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg"
+            className="w-full bg-[#00ff41] hover:bg-[#00ff41]/80 disabled:bg-[#134235] text-[#0a1f1a] font-bold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-[#00ff41]/20"
           >
             {isScanning ? 'Scanning...' : 'Start Vulnerability Scan'}
           </button>
 
-          <div>
-            <label className="block text-sm font-medium mb-2">Output:</label>
-            <pre className="bg-black p-4 rounded-lg h-64 overflow-y-auto text-green-400 font-mono text-sm">
+          <div className="backdrop-blur-sm bg-[#0d2b23]/50 p-6 rounded-xl border border-[#134235]">
+            <label className="block text-sm font-medium mb-2 text-[#00ff41]">Output:</label>
+            <pre className="bg-[#0a1f1a] p-4 rounded-lg h-64 overflow-y-auto text-[#00ff41] font-mono text-sm border border-[#134235]">
               {output}
             </pre>
           </div>
 
           {!isScanning && output && (
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold mb-4">Vulnerability Summary:</h3>
+            <div className="backdrop-blur-sm bg-[#0d2b23]/50 p-6 rounded-xl border border-[#134235]">
+              <h3 className="text-lg font-semibold mb-4 text-[#00ff41]">Vulnerability Summary:</h3>
               <div className="space-y-2">
                 {vulnerabilities.slice(0, scanType === 'quick' ? 3 : scanType === 'full' ? 5 : 8).map((vuln, index) => (
-                  <div key={index} className={`border-l-4 pl-4 py-2 ${getSeverityColor(vuln.severity)}`}>
+                  <div key={index} className={`border-l-4 pl-4 py-2 rounded-r-lg bg-[#10362c]/30 ${getSeverityColor(vuln.severity)}`}>
                     <div className="font-semibold">[{vuln.severity.toUpperCase()}] {vuln.desc}</div>
                     {vuln.cve && <div className="text-gray-400 text-sm">{vuln.cve}</div>}
                   </div>

@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-forest-900: #0a1f1a;
+  --color-forest-800: #0d2b23;
+  --color-forest-700: #10362c;
+  --color-forest-600: #134235;
+  --color-cyber-green: #00ff41;
+  --color-cyber-yellow: #f4b942;
+}

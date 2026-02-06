@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
 
 const devices = [
   { ip: '192.168.1.1', mac: '00:11:22:33:44:55', type: 'Router', os: 'Linux', vendor: 'TP-Link' },
@@ -29,28 +30,28 @@ export default function NetworkMapper() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      <h1 className="text-3xl font-bold mb-8">🗺️ Network Mapper</h1>
-      
-      <div className="mb-6">
-        <label className="block mb-2">Network Range:</label>
-        <input
-          type="text"
-          value={range}
-          onChange={(e) => setRange(e.target.value)}
-          className="bg-gray-800 border border-gray-600 rounded px-3 py-2 w-64"
-        />
-        <button
-          onClick={startNetworkMap}
-          disabled={scanning}
-          className="ml-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded disabled:opacity-50"
-        >
-          {scanning ? 'Scanning...' : 'Start Discovery'}
-        </button>
-      </div>
-
-      <div className="bg-gray-800 p-4 rounded h-96 overflow-y-auto whitespace-pre-wrap font-mono text-sm">
-        {output || 'Enter network range and click "Start Discovery"'}
+    <div className="min-h-screen bg-gradient-to-br from-forest-900 via-forest-800 to-forest-900">
+      <Navbar />
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        <h1 className="text-5xl font-bold mb-4">🗺️ Network <span className="text-cyber-yellow">Mapper</span></h1>
+        <p className="text-gray-400 mb-12 text-lg">Discover network topology and devices</p>
+        <div className="bg-forest-800/50 backdrop-blur border border-forest-600 rounded-xl p-8">
+          <input
+            type="text"
+            value={range}
+            onChange={(e) => setRange(e.target.value)}
+            placeholder="Network Range"
+            className="w-full p-4 bg-forest-900 border border-forest-600 rounded-lg mb-4 text-white focus:border-cyber-green focus:outline-none"
+          />
+          <button
+            onClick={startNetworkMap}
+            disabled={scanning}
+            className="bg-cyber-yellow text-forest-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 disabled:bg-gray-600 disabled:text-gray-400 transition"
+          >
+            {scanning ? 'Scanning...' : 'Start Discovery'}
+          </button>
+          <pre className="mt-6 p-6 bg-black/80 rounded-lg text-cyber-green h-96 overflow-auto font-mono text-sm border border-forest-600">{output || 'Enter network range and click "Start Discovery"'}</pre>
+        </div>
       </div>
     </div>
   );

@@ -14,19 +14,21 @@ export default function Tools() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-forest-900 via-forest-800 to-forest-900">
       <Navbar />
-      <section className="max-w-7xl mx-auto px-8 py-12">
-        <h1 className="text-5xl font-bold text-center mb-12 text-green-400">Security Tools</h1>
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <h1 className="text-5xl font-bold mb-4">Security <span className="text-cyber-yellow">Tools</span></h1>
+        <p className="text-gray-400 mb-12 text-lg">Professional penetration testing toolkit</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tools.map(tool => (
-            <Link key={tool.path} to={tool.path} className="bg-gray-800/60 p-6 rounded-lg border border-green-400/30 hover:border-green-400 transition transform hover:-translate-y-2">
-              <h3 className="text-2xl font-bold mb-2">{tool.icon} {tool.title}</h3>
+            <Link key={tool.path} to={tool.path} className="bg-forest-800/50 backdrop-blur border border-forest-600 p-8 rounded-xl hover:border-cyber-green hover:bg-forest-700/50 transition group">
+              <div className="text-5xl mb-4 group-hover:scale-110 transition">{tool.icon}</div>
+              <h2 className="text-2xl font-semibold mb-2 text-cyber-green">{tool.title}</h2>
               <p className="text-gray-400">{tool.desc}</p>
             </Link>
           ))}
         </div>
-      </section>
+      </div>
     </div>
   )
 }
